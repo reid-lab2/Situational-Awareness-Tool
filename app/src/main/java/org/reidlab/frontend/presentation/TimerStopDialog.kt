@@ -29,54 +29,54 @@ import androidx.wear.compose.material.dialog.Dialog
 
 @Composable
 fun SessionCompleteDialog(
-  // Add showDialog parameter to control visibility from the caller
-  showDialog: Boolean,
-  onDismissRequest: () -> Unit,
-  onAcceptClick: () -> Unit,
-  modifier: Modifier = Modifier
+    // Add showDialog parameter to control visibility from the caller
+    showDialog: Boolean,
+    onDismissRequest: () -> Unit,
+    onAcceptClick: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
-  Dialog(
-    showDialog = showDialog,
-    onDismissRequest = onDismissRequest,
-    modifier = modifier,
-    scrollState = null,
-  ) {
-    // Dialog content
-    Column(
-      modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp, horizontal = 24.dp),
-      horizontalAlignment = Alignment.CenterHorizontally,
-      verticalArrangement = Arrangement.spacedBy(12.dp)
+    Dialog(
+        showDialog = showDialog,
+        onDismissRequest = onDismissRequest,
+        modifier = modifier,
+        scrollState = null,
     ) {
-      Spacer(Modifier.height(15.dp))
-      Text(
-        text = "Session Complete!",
-        textAlign = TextAlign.Center,
-        maxLines = 1,
-        style = MaterialTheme.typography.title3,
-        color = MaterialTheme.colors.onSurface,
-        modifier = Modifier.fillMaxWidth()
-      )
-      Text(
-        text = "CSV now available to be pulled from the watch.",
-        textAlign = TextAlign.Center,
-        style = MaterialTheme.typography.body1,
-        color = MaterialTheme.colors.onSurface,
-        modifier = Modifier.fillMaxWidth()
-      )
+        // Dialog content
+        Column(
+            modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp, horizontal = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            Spacer(Modifier.height(15.dp))
+            Text(
+                text = "Session Complete!",
+                textAlign = TextAlign.Center,
+                maxLines = 1,
+                style = MaterialTheme.typography.title3,
+                color = MaterialTheme.colors.onSurface,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Text(
+                text = "CSV now available to be pulled from the watch.",
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.body1,
+                color = MaterialTheme.colors.onSurface,
+                modifier = Modifier.fillMaxWidth(),
+            )
 
-      Button(
-        onClick = onAcceptClick,
-        shape = CircleShape,
-        colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFAAE0FA)),
-        modifier = Modifier.size(ButtonDefaults.DefaultButtonSize)
-      ) {
-        Icon(
-          imageVector = Icons.Filled.Check,
-          contentDescription = "Accept",
-          tint = Color.Black,
-          modifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
-        )
-      }
+            Button(
+                onClick = onAcceptClick,
+                shape = CircleShape,
+                colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFAAE0FA)),
+                modifier = Modifier.size(ButtonDefaults.DefaultButtonSize),
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Check,
+                    contentDescription = "Accept",
+                    tint = Color.Black,
+                    modifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center),
+                )
+            }
+        }
     }
-  }
 }

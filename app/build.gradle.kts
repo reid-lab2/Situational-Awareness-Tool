@@ -44,13 +44,15 @@ android {
 
 spotless {
     kotlin {
-        ktfmt().googleStyle()
-        // ktfmt().dropboxStyle()
-
-        // Set the files to format
+        ktlint("0.50.0").editorConfigOverride(
+            mapOf(
+                "ktlint_standard_package-name" to "disabled",
+                "indent_size" to "4",
+                "continuation_indent_size" to "4"
+            )
+        )
         target("src/**/*.kt")
         targetExclude("build/**/*.kt")
-        // targetExclude("src/main/kotlin/com/example/dontformat/*")
     }
 }
 
